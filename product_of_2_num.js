@@ -4,11 +4,19 @@
  * @param {number} y second number
  * @returns {number} product of first and second number
  */
-function productNumberUsingRecursion(x,y){
-    if(x==1){
-        return y;
+function productNumberUsingRecursion(x, y) {
+    if (Math.abs(x) == 1 || x==0 || y==0) {
+        return Math.abs(y);
     }
-    return y + productNumberUsingRecursion(x-1,y)
+    return (Math.abs(y) + productNumberUsingRecursion(Math.abs(x) - 1, Math.abs(y))) 
+    * (x < 0 ? -1 : 1) // if(x is nagetive , result will multiply with -1)
+    * (y < 0 ? -1 : 1) // if(y is nagetive , result will multiply with -1)
 }
-console.log(productNumberUsingRecursion(20,20)) // 400
-console.log(productNumberUsingRecursion(40,20)) // 800
+console.log(productNumberUsingRecursion(111, 9)) //999
+console.log(productNumberUsingRecursion(111, -9)) //-999
+console.log(productNumberUsingRecursion(-111, 9)) //-999
+console.log(productNumberUsingRecursion(-111, -9)) //999
+console.log(productNumberUsingRecursion(9, 0)) //0
+console.log(productNumberUsingRecursion(0, 9)) //0
+console.log(productNumberUsingRecursion(0, 0)) //0
+console.log(productNumberUsingRecursion(-1, -4)) //0
