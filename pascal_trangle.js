@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/pascals-triangle/submissions/
 var generate = function(numRows) {
     const output =[[1],[1,1]]
     let count=1
